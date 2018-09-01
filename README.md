@@ -3,5 +3,5 @@
 Integrantes do grupo:
 
   Douglas de Jesus Costa;
-  Douglas Winston Soares Ribeiro;
+  Douglas Winston Ribeiro Soares;
   Lucas de Castro Ribeiro;
