@@ -2,6 +2,6 @@
 
 Integrantes do grupo:
 
-  Douglas de Jesus Costa
-  Douglas Winstom Soares Ribeiro
-  Lucas de Castro Ribeiro
+  Douglas de Jesus Costa;
+  Douglas Winston Soares Ribeiro;
+  Lucas de Castro Ribeiro;
