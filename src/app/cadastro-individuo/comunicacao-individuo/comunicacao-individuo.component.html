@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12">
+    <form>
+      <div class="row">
+        <h1>Cadastro das comunicações com os pacientes</h1>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label for="mc">Meio de comunicação:</label>
+            <select class="form-control" id="mc" required>
+              <option *ngFor="let meioComunicacao of meiosComunicacao" [value]="meioComunicacao">{{ meioComunicacao.descricao }}</option>
+            </select>
+          </div>
+        </div>
+      </div>      
+    </form>
+  </div>
+</div>

@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { BemvindoComponent } from './bemvindo/bemvindo.component';
-import { ComunicacaoIndividuoComponent } from './comunicacao-individuo/comunicacao-individuo.component';
+import { ComunicacaoIndividuoComponent } from './cadastro-individuo/comunicacao-individuo/comunicacao-individuo.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/bemvindo', pathMatch: 'full' },
   { path: 'bemvindo', component: BemvindoComponent },
-  { path: 'comunicaoindivido', component: ComunicacaoIndividuoComponent }
+  { path: 'comunicacaoindivido', component: ComunicacaoIndividuoComponent }
 ];
 
 @NgModule({
