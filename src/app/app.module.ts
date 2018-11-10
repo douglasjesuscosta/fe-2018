@@ -3,14 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { IdentificadorIndividuoComponent } from './identificador-individuo/identificador-individuo.component';
+import { ComunicacaoIndividuoComponent } from './comunicacao-individuo/comunicacao-individuo.component';
+import { HeaderComponent } from './header/header.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BemvindoComponent } from './bemvindo/bemvindo.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    IdentificadorIndividuoComponent
+    IdentificadorIndividuoComponent,
+    ComunicacaoIndividuoComponent,
+    HeaderComponent,
+    BemvindoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
