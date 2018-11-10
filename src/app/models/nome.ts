@@ -1,3 +1,5 @@
+import { GrupoUtilizacao } from "./grupoUtilizacao";
+
 export class NomesCliente{
 
     constructor(
@@ -5,7 +7,8 @@ export class NomesCliente{
         private sobrenomes?: string[],
         private sufixos?: string[],
         private indicadorUso?: number,
-        private nomeAlternativo?: string 
+        private nomeAlternativo?: string,
+        private grupoUtilizacao?: GrupoUtilizacao
     ){
 
     }
@@ -48,5 +51,13 @@ export class NomesCliente{
 
     public set p_nomeAlternativo(nomeAlternativo: string){
         this.nomeAlternativo = nomeAlternativo;
+    }
+
+    public get p_grupoUtilizacao(): GrupoUtilizacao {
+        return this.grupoUtilizacao;
+    }
+
+    public set p_grupoUtilizacao(grupoUtilizacao: GrupoUtilizacao){
+        this.grupoUtilizacao = grupoUtilizacao;
     }
 }

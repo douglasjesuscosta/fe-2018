@@ -1,8 +1,10 @@
 import { Identificador } from "./identificador";
+import { NomesCliente } from "./nome";
 
 class Cliente {
     constructor(
         private identificadores: Identificador[],
+        private nomesCliente: NomesCliente
 
     ){}
 
@@ -14,5 +16,4 @@ class Cliente {
         this.identificadores = identificadores;
     }
 
-    }
 }
