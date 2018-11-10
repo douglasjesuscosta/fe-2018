@@ -1,5 +1,5 @@
-import { Identificador } from "./identificador";
-import { NomesCliente } from "./nome";
+import { Identificador } from "./identificadoresCliente/identificador";
+import { NomesCliente } from "./nome/nome";
 
 class Cliente {
     constructor(

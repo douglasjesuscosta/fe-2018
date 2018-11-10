@@ -9,9 +9,7 @@ export class NomesCliente{
         private indicadorUso?: number,
         private nomeAlternativo?: string,
         private grupoUtilizacao?: GrupoUtilizacao
-    ){
-
-    }
+    ){}
 
     public get p_nomesAtribuidos(): string[] {
         return this.nomesAtribuidos;

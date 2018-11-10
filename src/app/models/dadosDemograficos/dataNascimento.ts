@@ -3,7 +3,7 @@ export class DataNascimento{
     constructor(
         private dataNascimento: Date,
         private acuraciaDataNascimento: string,
-        private seguimentoDataNascimento: string
+        private seguimentoDataNascimento: boolean
 
     ){}
 
@@ -23,11 +23,11 @@ export class DataNascimento{
         this.acuraciaDataNascimento = acuraciaDataNascimento;
     }
 
-    public get p_seguimentoDataNascimento(): string {
+    public get p_seguimentoDataNascimento(): boolean {
         return this.seguimentoDataNascimento;
     }
 
-    public set p_seguimentoDataNascimento(seguimentoDataNascimento: string){
+    public set p_seguimentoDataNascimento(seguimentoDataNascimento: boolean){
         this.seguimentoDataNascimento = seguimentoDataNascimento;
     }
 }
