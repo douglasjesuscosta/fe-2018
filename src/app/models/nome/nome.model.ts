@@ -1,4 +1,4 @@
-import { GrupoUtilizacao } from "./grupoUtilizacao";
+import { GrupoUtilizacao } from "./grupo-utilizacao.model";
 
 export class NomesCliente{
 

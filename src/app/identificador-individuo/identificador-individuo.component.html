@@ -1,3 +1,70 @@
-<p>
-  identificador-individuo works!
-</p>
+<div class="alert alert-warning" role="alert" *ngIf="f.submitted && f.invalid">
+  Dados inválidos. Verfifique os dados informados.
+</div>
+<div class="alert alert-warning" role="alert" *ngIf="f.submitted && !isSuccess()">
+  {{errorMessage}}
+</div>
+<div class="alert alert-success" role="alert" *ngIf="f.submitted && isSuccess()">
+Operação realizada com sucesso! 
+<button type="button" class="btn btn-success btn-sm" routerLink="/">Voltar</button>
+</div>
+<form #f="ngForm" (ngSubmit)="submit(f)">
+<div class="form-group">
+  <label for="description">Descrição</label>
+  <input required 
+         class="form-control" 
+         ngModel #description="ngModel" 
+         id="description"
+         name="description" 
+         placeholder="Digite a descrição do software">
+  <div class="alert alert-danger" 
+       *ngIf=" description.touched && !description.valid || 
+                f.submitted && !description.valid">
+    Dado obrigatório! Favor informar a descrição.
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="initials">Sigla</label>
+  <input required 
+         class="form-control" 
+         ngModel #initials="ngModel"
+         id="initials" 
+         name="initials"
+         placeholder="initials">
+  <div class="alert alert-danger" 
+       *ngIf="initials.touched && !initials.valid || 
+              f.submitted && !initials.valid">
+      Informe a sigla.
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="email">Endereço de Atendimento do Sistema</label>
+  <input type="email" 
+         ngModel email="true" 
+         #email="ngModel" 
+         class="form-control" 
+         id="email" 
+         name="email"
+         placeholder="Digite o e-mail">
+  <div class="alert alert-danger" 
+       *ngIf=" email.touched && !email.valid || 
+              f.submitted && !email.valid">
+    Email inválido. 
+  </div>
+</div>
+
+<div class="form-group">
+  <label for="url">URL</label>
+  <input type="text" 
+         ngModel
+         name="url"
+         #url="ngModel"
+         class="form-control" 
+         id="url" 
+         placeholder="Digite a url de acesso">
+</div>
+
+<button type="submit" class="btn btn-primary">Salvar</button>
+</form>

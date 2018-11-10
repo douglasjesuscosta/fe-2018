@@ -1,5 +1,5 @@
-import { DataNascimento } from "./dataNascimento";
-import { DataObito } from "./dataObito";
+import { DataNascimento } from "./data-nascimento.model";
+import { DataObito } from "./data-obito.model";
 
 export class DadosDemograficosAdicionais{
 

@@ -1,5 +1,5 @@
-import { Identificador } from "./identificadoresCliente/identificador";
-import { NomesCliente } from "./nome/nome";
+import { Identificador } from "./identificadoresCliente/identificador.model";
+import { NomesCliente } from "./nome/nome.model";
 
 class Cliente {
     constructor(

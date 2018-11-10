@@ -1,4 +1,4 @@
-import { Identificador } from "./identificador";
+import { Identificador } from "./identificador.model";
 
 export class CertNascCasDiv extends Identificador{
     constructor(
