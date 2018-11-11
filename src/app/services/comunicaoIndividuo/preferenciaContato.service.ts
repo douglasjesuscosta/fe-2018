@@ -1,5 +1,9 @@
 import { PreferenciaContato } from '../../models/comunicaoIndividuo/preferenciaContato.model';
+import { Injectable } from '@angular/core';
 
+@Injectable({
+  providedIn: 'root',
+})
 export class PreferenciaContatoService {
     
     private preferenciasContato: PreferenciaContato[] = [

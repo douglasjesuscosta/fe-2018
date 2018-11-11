@@ -1,5 +1,8 @@
 import { UtilizacaoContato } from '../../models/comunicaoIndividuo/utilizacaoContato.model';
-
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root',
+})
 export class UtilizacaoContatoService {
     
     private utilizacoesContato: UtilizacaoContato[] = [
