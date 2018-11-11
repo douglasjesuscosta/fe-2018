@@ -4,15 +4,15 @@ import { DataObito } from "./data-obito.model";
 export class DadosDemograficosAdicionais{
 
     constructor(
-        private dataNascimento: DataNascimento,
-        private dataObito: DataObito,
-        private sexo: string,
-        private nomeMae: string,
-        private nomePai: string,
-        private situacaoFamilitar: string,
-        private racaCor: string,
-        private pluralidadeNascimento: string,
-        private comentarioIdentificacao: string
+        private dataNascimento?: DataNascimento,
+        private dataObito?: DataObito,
+        private sexo?: string,
+        private nomeMae?: string,
+        private nomePai?: string,
+        private situacaoFamilitar?: string,
+        private racaCor?: string,
+        private pluralidadeNascimento?: string,
+        private comentarioIdentificacao?: string
 
     ){}
 
