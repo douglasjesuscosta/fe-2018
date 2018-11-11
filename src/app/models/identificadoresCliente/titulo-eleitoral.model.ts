@@ -3,8 +3,8 @@ import { Identificador } from "./identificador.model";
 export class TituloEleitoral extends Identificador{
 
     constructor(
-        private secaoEleitoral: number,
-        private zonaEleitoral: number
+        private secaoEleitoral?: number,
+        private zonaEleitoral?: number
 
     ){
         super()

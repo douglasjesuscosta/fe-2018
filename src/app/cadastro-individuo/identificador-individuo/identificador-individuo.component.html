@@ -7,8 +7,12 @@
       <div class="col-lg-12">
         <div class="form-group col-lg-6 select">
           <label for="tipoIdentificador">Tipo do idenificador</label>
-          <select required class="form-control" ngModel #tipoIdentificador="ngModel" id="tipoIdentificador" name="tipoIdentificador"
-            placeholder="Tipo do identificador" (change)="log(tipoIdentificador)">
+          <select required class="form-control" 
+                  ngModel 
+                  #tipoIdentificador="ngModel" 
+                  id="tipoIdentificador" 
+                  name="tipoIdentificador"
+                  placeholder="Tipo do identificador">
             <option *ngFor="let tipo of tiposIdentificadores" value={{tipo.codigo}}>
               {{tipo.nome}}
             </option>
@@ -16,11 +20,15 @@
         </div>
         <div class="form-group col-lg-6">
           <label for="description">Descrição</label>
-          <input required class="form-control" ngModel #description="ngModel" id="description" name="description"
-            placeholder="Digite a descrição do software">
+          <input required class="form-control" 
+                 ngModel #descricao="ngModel"
+                 id="descricao"
+                 name="descricao"
+                 placeholder="Digite a descrição do identificador">
 
-          <div class="alert alert-danger" *ngIf=" description.touched && !description.valid || 
-                                f.submitted && !description.valid">
+          <div class="alert alert-danger" 
+               *ngIf="descricao.touched && !descricao.valid || 
+                      f.submitted && !descricao.valid">
             Dado obrigatório! Favor informar a descrição.
           </div>
         </div>
@@ -29,10 +37,14 @@
           <label for="codigoGeo">Área geográfica</label>
           <select required class="form-control" ngModel #codigoGeo="ngModel" id="codigoGeo" name="codigoGeo"
             placeholder="Área geográfica">
-            <option *ngFor="let area of areasGeograficas" value={{area}}>
+            <option *ngFor="let area of areasGeograficas" value={{area.codigo}}>
               {{area.descricao}}
             </option>
           </select>
+          <div class="alert alert-danger" *ngIf=" codigoGeo.touched && !codigoGeo.valid || 
+                                f.submitted && !codigoGeo.valid">
+            Dado obrigatório! Favor informar a descrição.
+          </div>
         </div>
         <div class="form-group col-lg-6">
           <label for="date">Data</label>
