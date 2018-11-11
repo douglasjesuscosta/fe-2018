@@ -8,14 +8,15 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BemvindoComponent } from './bemvindo/bemvindo.component';
 import { AreaGeograficaService } from './services/identificador/area-geografica.service';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MeioComunicaoService } from './services/comunicaoIndividuo/meioComunicacao.service';
-import { PreferenciaContato } from './models/comunicaoIndividuo/preferenciaContato.model';
 import { PreferenciaContatoService } from './services/comunicaoIndividuo/preferenciaContato.service';
 import { UtilizacaoContatoService } from './services/comunicaoIndividuo/utilizacaContato.service';
 import { RouterModule } from '@angular/router';
 import { InformacoesDemograficasComponent } from './cadastro-individuo/informacoes-demograficas/informacoes-demograficas.component';
 import { NomeIndividuoComponent } from 'src/app/cadastro-individuo/nome-individuo/nome-individuo.component';
+import { VinculoIndividuoComponent } from './cadastro-individuo/vinculo-individuo/vinculo-individuo.component';
+import { CadastroIndividuoComponent } from './cadastro-individuo/cadastro-individuo.component';
 
 
 @NgModule({
@@ -26,17 +27,16 @@ import { NomeIndividuoComponent } from 'src/app/cadastro-individuo/nome-individu
     HeaderComponent,
     BemvindoComponent,
     InformacoesDemograficasComponent,
-    NomeIndividuoComponent
+    NomeIndividuoComponent,
+    VinculoIndividuoComponent,
+    CadastroIndividuoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    RouterModule.forRoot([
-      {path: 'identificador', component: IdentificadorIndividuoComponent},
-      {path:'informacoesDemograficas', component: InformacoesDemograficasComponent},
-      {path:'nomeIndividuo', component: NomeIndividuoComponent}
-    ])
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     AreaGeograficaService,

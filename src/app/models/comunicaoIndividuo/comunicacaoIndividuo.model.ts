@@ -2,7 +2,7 @@ import { MeioComunicacao } from "./meioComunicacao.model";
 import { PreferenciaContato } from "./preferenciaContato.model";
 import { UtilizacaoContato } from "./utilizacaoContato.model"
 
-export class comunicaoIndividuo {
+export class ComunicaoIndividuo {
     constructor(
         private meioComunicao ?: MeioComunicacao,
         private preferenciaContato ?: PreferenciaContato,
