@@ -1,58 +1,220 @@
+<form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="row">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                Data de nascimento
+            </div>
 
-    <form #f="ngForm" (ngSubmit)="submit(f)">
-        <div class="row">
-            <div class="panel panel-default">
-                <!-- Default panel contents -->
-                <div class="panel-heading">
-                    Data de nascimento
-                </div>
-
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="form-group col-lg-4">
-                            <label for="dataNascimento">
-                                Data de Nascimento:
-                            </label>  
-                            <br>
-                            <input type="date" 
-                                   name="dataNascimento"
-                                   #dataNascimento="ngModel"
-                                   ngModel
-                                   id="dataNascimento"
-                                   name="dataNascimento"
-                                   placeholder="Informe a data de nascimento">
-                        </div>
-                        <div class="form-group col-lg-4">
-                                <label for="indAcuraciaDataNascimento">
-                                    Indicador de Acurácia da Data de Nascimento:
-                                </label>   
-                                <input type="text" 
-                                       name="indAcuraciaDataNascimento"
-                                       #indAcuraciaDataNascimento="ngModel"
-                                       ngModel
-                                       id="indAcuraciaDataNascimento"
-                                       name="indAcuraciaDataNascimento"
-                                       placeholder="Informe a acurácia da data de nascimento">
-                        </div>
-                        <div class="form-group col-lg-4">
-                                <label for="indSegDataNascimento">
-                                    Indicador de segmento da data de nascimento:
-                                </label>   
-                                <select required class="form-control"
-                                        ngModel #indicadorSegmento="ngModel"
-                                        id="indicadorSegmento" 
-                                        name="indicadorSegmento">
-                                    <option value="true">
-                                        Verdadeiro
-                                    </option>
-                                    <option value="false">
-                                        Falso
-                                    </option>
-                                </select>
-                        </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label for="dataNascimento">
+                            Data de Nascimento:
+                        </label>
+                        <br>
+                        <input type="date" name="dataNascimento" #dataNascimento="ngModel" ngModel id="dataNascimento"
+                            name="dataNascimento" placeholder="Informe a data de nascimento">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="indAcuraciaDataNascimento">
+                            Indicador de Acurácia da Data de Nascimento:
+                        </label>
+                        <input type="text" name="indAcuraciaDataNascimento" #indAcuraciaDataNascimento="ngModel"
+                            ngModel id="indAcuraciaDataNascimento" name="indAcuraciaDataNascimento" placeholder="Informe a acurácia da data de nascimento">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="indSegDataNascimento">
+                            Indicador de segmento da data de nascimento:
+                        </label>
+                        <select required class="form-control" ngModel #indicadorSegmento="ngModel" id="indicadorSegmento"
+                            name="indicadorSegmento">
+                            <option value="true">
+                                Verdadeiro
+                            </option>
+                            <option value="false">
+                                Falso
+                            </option>
+                        </select>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-                   
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                Data de óbito
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-lg-4">
+                        <label for="dataObito">
+                            Data de Obito:
+                        </label>
+                        <br>
+                        <input type="date" name="dataObito" #dataObito="ngModel" ngModel id="dataObito" name="dataObito"
+                            placeholder="Informe a data de óbito">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="indAcuraciaDataObito">
+                            Indicador de Acurácia da Data de Óbito:
+                        </label>
+                        <input type="text" name="indAcuraciaDataObito" #indAcuraciaDataObito="ngModel" ngModel id="indAcuraciaDataObito"
+                            name="indAcuraciaDataObito" placeholder="Informe a acurácia da data de óbito">
+                    </div>
+                    <div class="form-group col-lg-4">
+                        <label for="fonteObito">
+                            Informar fonta da notificação de óbito
+                        </label>
+                        <input type="text" required class="form-control" ngModel #fonteObito="ngModel" id="fonteObito"
+                            name="fonteObito" placeholder="Informar a fonte da  notícia de óbito">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                Informações gerais
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="sexo">Sexo</label>
+                        <select required class="form-control" ngModel #sexo="ngModel" id="sexo" name="sexo">
+                            <option value="Feminino">
+                                Feminino
+                            </option>
+                            <option value="Masculino">
+                                Masculino
+                            </option>
+                            <option value="Outro">
+                                Outro
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label for="nomeMae">
+                            Nome da mãe:
+                        </label>
+                        <br>
+                        <input type="text" name="nomeMae" #nomeMae="ngModel" ngModel id="nomeMae" name="nomeMae"
+                            placeholder="Informe o nome da mãe">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="nomePai">
+                            Nome do pai:
+                        </label>
+                        <br>
+                        <input type="text" name="nomePai" #nomePai="ngModel" ngModel id="nomePai" name="nomePai"
+                            placeholder="Informe o nome do pai">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label for="situacao">
+                            Situação Familiar:
+                        </label>
+                        <br>
+                        <input type="text" name="situacao" #situacao="ngModel" ngModel id="situacao" name="situacao"
+                            placeholder="Informe a situação familiar">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <label for="raca">Raca/Cor</label>
+                    <select required class="form-control" ngModel #raca="ngModel" id="raca" name="raca">
+                        <option value="Branca">
+                            Branca
+                        </option>
+                        <option value="Negra">
+                            Negra
+                        </option>
+                        <option value="Parda">
+                            Parda
+                        </option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                Nacionalidade
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="munNascimento">
+                            Município de nascimento:
+                        </label>
+                        <br>
+                        <input type="text" name="munNascimento" #munNascimento="ngModel" ngModel id="munNascimento"
+                            name="munNascimento" placeholder="Informe o município de nascimento">
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <label for="estNascimento">
+                            Estado de nascimento:
+                        </label>
+                        <br>
+                        <input type="text" name="estNascimento" #estNascimento="ngModel" ngModel id="estNascimento"
+                            name="estNascimento" placeholder="Informe o estado de nascimento">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="paisNascimento">
+                            País de nascimento:
+                        </label>
+                        <br>
+                        <input type="text" name="paisNascimento" #paisNascimento="ngModel" ngModel id="paisNascimento"
+                            name="munNascimento" placeholder="Informe o país de nascimento">
+                    </div>
+                    <div class="form-group col-lg-6">
+                        <label for="dataEntPais">Data de entrada no país</label>
+                        <input type="date" ngModel name="dataEntPais" #dataEntPais="ngModel" class="form-control" id="dataEntPais"
+                            placeholder="Informe a data de entrada no país">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-lg-6">
+                        <label for="plurNascimento">
+                            Pluralidade de nascimento:
+                        </label>
+                        <br>
+                        <input type="text" name="plurNascimento" #plurNascimento="ngModel" ngModel id="plurNascimento"
+                            name="plurNascimento" placeholder="Informe a pluralidade de nascimento">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">
+                Comentários de identificação
+            </div>
+
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <label for="comentIdentificacao">
+                            Comentários de identificação:
+                        </label>
+                        <br>
+                        <input type="text" name="comentIdentificacao" #comentIdentificacao="ngModel" ngModel id="comentIdentificacao"
+                            name="comentIdentificacao" placeholder="Comentários para identificação">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
