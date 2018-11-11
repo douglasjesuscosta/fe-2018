@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Estado } from '../models/identificadoresCliente/estado.model';
+import { Estado } from '../../models/identificadoresCliente/estado.model';
 
 @Injectable({
   providedIn: 'root'
