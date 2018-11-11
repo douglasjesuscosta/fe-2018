@@ -144,7 +144,7 @@
         <div class="panel-body">
           <div class="row">
             <label for="indicadorUsoOpcional">Indicador de uso do nome</label>
-            <select required class="form-control" ngModel #tipoIdentificador="ngModel" id="indicadorUsoOpcional" name="indicadorUsoOpcional"
+            <select required class="form-control" ngModel #indicadorUsoOpcional="ngModel" id="indicadorUsoOpcional" name="indicadorUsoOpcional"
               placeholder="Tipo de indicador para uso do nome">
               <option *ngFor="let indicador of indicadores" value={{indicador.codigo}}>
                 {{indicador.descricao}}
@@ -152,13 +152,39 @@
             </select>
           </div>
           <div class="form-group" id="campoNome">
-            <label for="reprAlternativa">Representação alternativa do nome</label>
-            <input required class="form-control" ngModel #reprAlternativa="ngModel" id="reprAlternativa" name="reprAlternativa" placeholder="Representação alternativa do nome">
+            <label for="representAlt">Representação alternativa do nome</label>
+            <input required class="form-control" ngModel #representAlt="ngModel" id="representAlt" name="representAlt"
+              placeholder="Representação alternativa do nome">
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Grupo de utilização do nome
+        </div>
+
+        <div class="panel-body">
+          <div class="form-group" id="campoNome">
+            <label for="grupoUtilizacaoNome">Usos do nome</label>
+            <select required class="form-control" ngModel #usoNome="ngModel" id="usoNome" name="usoNome" placeholder="Usos do nome">
+              <option *ngFor="let usoNome of usosNome" value={{usoNome.codigo}}>
+                {{usoNome.nome}}
+              </option>
+            </select>
+          </div>
+          <div class="form-group" id="campoNome">
+            <label for="dataInicio">Data de incio</label>
+            <input type="date" ngModel name="dataInicio" #dataInicio="ngModel" class="form-control" id="dataInicio"
+              placeholder="Informe a data de início">
+            <label for="dataFinal">Data final</label>
+            <input type="date" ngModel name="dataFinal" #dataFinal="ngModel" class="form-control" id="dataFinal"
+              placeholder="Informe a data final">
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Próximo</button>
-</form>
+    <button type="submit" class="btn btn-primary">Próximo</button>
+  </form>
 </div>
+
+
