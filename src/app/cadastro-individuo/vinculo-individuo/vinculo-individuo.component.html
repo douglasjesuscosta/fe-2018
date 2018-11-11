@@ -1,0 +1,66 @@
+<div class="row">
+    <div class="col-xs-12">
+      <form [formGroup]="pacienteForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <h1>Cadastro dos vínculos do paciente</h1>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label for="id">Identificador:</label>
+              <input
+                type="text"
+                id="id"
+                formControlName="identificador"
+                class="form-control">
+            </div>
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label for="rel">Relacionamento:</label>
+              <select class="form-control" id="rel" formControlName="relacionamento" required>
+                <option value="">Selecione</option>
+                <option *ngFor="let relacionamento of relacionamentos" [ngValue]="relacionamento">{{ relacionamento.descricao }}</option>
+              </select>
+            </div>
+          </div>
+        </div>   
+        <div class="row">
+          <div class="col-xs-6">
+            <div class="form-group">
+              <label for="dtInicial">Data inicial:</label>
+              <input 
+                class="form-control"  
+                type="date"  
+                id="dtInicial"
+                formControlName="dataInicial">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+              <div class="form-group">
+                <label for="dtFinal">Data Final:</label>
+                <input 
+                  class="form-control"  
+                  type="date"  
+                  id="dtFinal"
+                  formControlName="dataFinal">
+              </div>
+            </div>
+          </div>
+        <hr>
+          <div class="row">
+            <div class="col-xs-12">
+              <button
+                type="submit"
+                class="btn btn-success">Salvar
+              </button>
+            </div>
+          </div>  
+      </form>
+    </div>
+  </div>
+  
