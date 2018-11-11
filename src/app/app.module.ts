@@ -15,7 +15,8 @@ import { PreferenciaContatoService } from './services/comunicaoIndividuo/prefere
 import { UtilizacaoContatoService } from './services/comunicaoIndividuo/utilizacaContato.service';
 import { RouterModule } from '@angular/router';
 import { InformacoesDemograficasComponent } from './cadastro-individuo/informacoes-demograficas/informacoes-demograficas.component';
-import { NomeIndividuoComponent } from './nome-individuo/nome-individuo.component';
+import { NomeIndividuoComponent } from 'src/app/cadastro-individuo/nome-individuo/nome-individuo.component';
+
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { NomeIndividuoComponent } from './nome-individuo/nome-individuo.componen
     FormsModule,
     RouterModule.forRoot([
       {path: 'identificador', component: IdentificadorIndividuoComponent},
-      {path:'informacoesDemograficas', component: InformacoesDemograficasComponent}
+      {path:'informacoesDemograficas', component: InformacoesDemograficasComponent},
+      {path:'nomeIndividuo', component: NomeIndividuoComponent}
     ])
   ],
   providers: [
