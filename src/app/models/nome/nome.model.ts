@@ -6,10 +6,16 @@ export class NomesCliente{
         private nomesAtribuidos?: string[],
         private sobrenomes?: string[],
         private sufixos?: string[],
+        private titulos?: string[],
         private indicadorUso?: number,
         private nomeAlternativo?: string,
         private grupoUtilizacao?: GrupoUtilizacao
-    ){}
+    ){
+        this.sobrenomes = [];
+        this.titulos = [];
+        this.sufixos = [];
+        this.nomesAtribuidos = [];
+    }
 
     public get p_nomesAtribuidos(): string[] {
         return this.nomesAtribuidos;
@@ -58,4 +64,13 @@ export class NomesCliente{
     public set p_grupoUtilizacao(grupoUtilizacao: GrupoUtilizacao){
         this.grupoUtilizacao = grupoUtilizacao;
     }
+
+    public get p_titulos(): string[] {
+        return this.titulos;
+    }
+
+    public set p_titulos(value: string[]) {
+        this.titulos = value;
+    }
+
 }
