@@ -1,70 +1,85 @@
-<div class="alert alert-warning" role="alert" *ngIf="f.submitted && f.invalid">
-  Dados inválidos. Verfifique os dados informados.
+
+<div class="row">
+  <div class="col-md-12">
+      <div class="form-group select">
+          <label for="tipoIdentificador">Tipo do idenificador</label>
+          <select required 
+                  class="form-control" 
+                  ngModel #tipoIdentificador="ngModel"
+                  id="tipoIdentificador" 
+                  name="tipoIdentificador"
+                  placeholder="Tipo do identificador">
+            <option *ngFor="let tipo of tiposIdenticador" value={{tipo}}>
+              {{tipo.nome}}
+            </option>
+          </select>
+        </div>
+  </div>
 </div>
-<div class="alert alert-warning" role="alert" *ngIf="f.submitted && !isSuccess()">
-  {{errorMessage}}
-</div>
-<div class="alert alert-success" role="alert" *ngIf="f.submitted && isSuccess()">
-Operação realizada com sucesso! 
-<button type="button" class="btn btn-success btn-sm" routerLink="/">Voltar</button>
-</div>
-<form #f="ngForm" (ngSubmit)="submit(f)">
-<div class="form-group">
-  <label for="description">Descrição</label>
-  <input required 
-         class="form-control" 
-         ngModel #description="ngModel" 
-         id="description"
-         name="description" 
-         placeholder="Digite a descrição do software">
-  <div class="alert alert-danger" 
-       *ngIf=" description.touched && !description.valid || 
-                f.submitted && !description.valid">
-    Dado obrigatório! Favor informar a descrição.
+<div class="row">
+  <div class="col-md-6">
+      <div class="alert alert-warning" role="alert" *ngIf="f.submitted && f.invalid">
+          Dados inválidos. Verfifique os dados informados.
+        </div>
+        <div class="alert alert-warning" role="alert" *ngIf="f.submitted && !isSuccess()">
+          {{errorMessage}}
+        </div>
+        <div  
+          class="alert alert-success" 
+          role="alert" 
+          *ngIf="f.submitted && isSuccess()">
+          Operação realizada com sucesso! 
+          <button type="button" class="btn btn-success btn-sm" routerLink="/">Voltar</button>
+        </div>
+        
+        <form #f="ngForm" (ngSubmit)="submit(f)">
+          <div class="form-group">
+            <label for="description">Descrição</label>
+            <input 
+                  required 
+                  class="form-control" 
+                  ngModel #description="ngModel" 
+                  id="description"
+                  name="description" 
+                  placeholder="Digite a descrição do software">
+        
+            <div class="alert alert-danger" 
+                *ngIf=" description.touched && !description.valid || 
+                        f.submitted && !description.valid">
+              Dado obrigatório! Favor informar a descrição.
+            </div>
+          </div>
+        
+          <div class="form-group select">
+            <label for="codigoGeo">Área geográfica</label>
+            <select required 
+                    class="form-control" 
+                    ngModel #codigoGeo="ngModel"
+                    id="codigoGeo" 
+                    name="codigoGeo"
+                    placeholder="Área geográfica">
+              <option *ngFor="let area of areasGeograficas" value={{area}}>
+                {{area.descricao}}
+              </option>
+            </select>
+          </div>
+        
+          <div class="form-group">
+            <label for="date">Data</label>
+            <input type="date" 
+                  ngModel
+                  name="date"
+                  #date="ngModel"
+                  class="form-control" 
+                  id="date" 
+                  placeholder="Digite a data">
+          </div>
+        
+          <button type="submit" class="btn btn-primary">Salvar</button>
+        </form>
+  </div>
+  <div class="col-md-6">
+
   </div>
 </div>
 
-<div class="form-group">
-  <label for="initials">Sigla</label>
-  <input required 
-         class="form-control" 
-         ngModel #initials="ngModel"
-         id="initials" 
-         name="initials"
-         placeholder="initials">
-  <div class="alert alert-danger" 
-       *ngIf="initials.touched && !initials.valid || 
-              f.submitted && !initials.valid">
-      Informe a sigla.
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="email">Endereço de Atendimento do Sistema</label>
-  <input type="email" 
-         ngModel email="true" 
-         #email="ngModel" 
-         class="form-control" 
-         id="email" 
-         name="email"
-         placeholder="Digite o e-mail">
-  <div class="alert alert-danger" 
-       *ngIf=" email.touched && !email.valid || 
-              f.submitted && !email.valid">
-    Email inválido. 
-  </div>
-</div>
-
-<div class="form-group">
-  <label for="url">URL</label>
-  <input type="text" 
-         ngModel
-         name="url"
-         #url="ngModel"
-         class="form-control" 
-         id="url" 
-         placeholder="Digite a url de acesso">
-</div>
-
-<button type="submit" class="btn btn-primary">Salvar</button>
-</form>
