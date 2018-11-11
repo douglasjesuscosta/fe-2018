@@ -30,7 +30,8 @@ import { InformacoesDemograficasComponent } from './cadastro-individuo/informaco
     AppRoutingModule,
     FormsModule,
     RouterModule.forRoot([
-      {path: 'identificador', component: IdentificadorIndividuoComponent}
+      {path: 'identificador', component: IdentificadorIndividuoComponent},
+      {path:'informacoesDemograficas', component: InformacoesDemograficasComponent}
     ])
   ],
   providers: [
