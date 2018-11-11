@@ -14,6 +14,7 @@ import { PreferenciaContato } from './models/comunicaoIndividuo/preferenciaConta
 import { PreferenciaContatoService } from './services/comunicaoIndividuo/preferenciaContato.service';
 import { UtilizacaoContatoService } from './services/comunicaoIndividuo/utilizacaContato.service';
 import { RouterModule } from '@angular/router';
+import { InformacoesDemograficasComponent } from './cadastro-individuo/informacoes-demograficas/informacoes-demograficas.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { RouterModule } from '@angular/router';
     IdentificadorIndividuoComponent,
     ComunicacaoIndividuoComponent,
     HeaderComponent,
-    BemvindoComponent
+    BemvindoComponent,
+    InformacoesDemograficasComponent
   ],
   imports: [
     BrowserModule,
