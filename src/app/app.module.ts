@@ -7,6 +7,7 @@ import { ComunicacaoIndividuoComponent } from './cadastro-individuo/comunicacao-
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { BemvindoComponent } from './bemvindo/bemvindo.component';
+import { InformacoesDemograficasComponent } from './cadastro-individuo/informacoes-demograficas/informacoes-demograficas.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { BemvindoComponent } from './bemvindo/bemvindo.component';
     IdentificadorIndividuoComponent,
     ComunicacaoIndividuoComponent,
     HeaderComponent,
-    BemvindoComponent
+    BemvindoComponent,
+    InformacoesDemograficasComponent
   ],
   imports: [
     BrowserModule,
