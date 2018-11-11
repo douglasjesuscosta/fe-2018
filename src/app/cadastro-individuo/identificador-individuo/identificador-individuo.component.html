@@ -1,85 +1,141 @@
+<div class="container">
+  <div class="row">
 
-<div class="row">
-  <div class="col-md-12">
-      <div class="form-group select">
+  </div>
+  <form #f="ngForm" (ngSubmit)="submit(f)">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="form-group col-lg-6 select">
           <label for="tipoIdentificador">Tipo do idenificador</label>
-          <select required 
-                  class="form-control" 
-                  ngModel #tipoIdentificador="ngModel"
+          <select required class="form-control" 
+                  ngModel 
+                  #tipoIdentificador="ngModel" 
                   id="tipoIdentificador" 
                   name="tipoIdentificador"
                   placeholder="Tipo do identificador">
-            <option *ngFor="let tipo of tiposIdenticador" value={{tipo}}>
+            <option *ngFor="let tipo of tiposIdentificadores" value={{tipo.codigo}}>
               {{tipo.nome}}
             </option>
           </select>
         </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-      <div class="alert alert-warning" role="alert" *ngIf="f.submitted && f.invalid">
-          Dados inválidos. Verfifique os dados informados.
+        <div class="form-group col-lg-6">
+          <label for="description">Descrição</label>
+          <input required class="form-control" 
+                 ngModel #descricao="ngModel"
+                 id="descricao"
+                 name="descricao"
+                 placeholder="Digite a descrição do identificador">
+
+          <div class="alert alert-danger" 
+               *ngIf="descricao.touched && !descricao.valid || 
+                      f.submitted && !descricao.valid">
+            Dado obrigatório! Favor informar a descrição.
+          </div>
         </div>
-        <div class="alert alert-warning" role="alert" *ngIf="f.submitted && !isSuccess()">
-          {{errorMessage}}
+
+        <div class="form-group select col-lg-6">
+          <label for="codigoGeo">Área geográfica</label>
+          <select required class="form-control" ngModel #codigoGeo="ngModel" id="codigoGeo" name="codigoGeo"
+            placeholder="Área geográfica">
+            <option *ngFor="let area of areasGeograficas" value={{area.codigo}}>
+              {{area.descricao}}
+            </option>
+          </select>
+          <div class="alert alert-danger" *ngIf=" codigoGeo.touched && !codigoGeo.valid || 
+                                f.submitted && !codigoGeo.valid">
+            Dado obrigatório! Favor informar a descrição.
+          </div>
         </div>
-        <div  
-          class="alert alert-success" 
-          role="alert" 
-          *ngIf="f.submitted && isSuccess()">
-          Operação realizada com sucesso! 
-          <button type="button" class="btn btn-success btn-sm" routerLink="/">Voltar</button>
+        <div class="form-group col-lg-6">
+          <label for="date">Data</label>
+          <input type="date" ngModel name="date" #date="ngModel" class="form-control" id="date" placeholder="Digite a data">
         </div>
-        
-        <form #f="ngForm" (ngSubmit)="submit(f)">
-          <div class="form-group">
-            <label for="description">Descrição</label>
-            <input 
-                  required 
-                  class="form-control" 
-                  ngModel #description="ngModel" 
-                  id="description"
-                  name="description" 
-                  placeholder="Digite a descrição do software">
-        
-            <div class="alert alert-danger" 
-                *ngIf=" description.touched && !description.valid || 
-                        f.submitted && !description.valid">
-              Dado obrigatório! Favor informar a descrição.
+
+        <div *ngIf="tipoIdentificador.value == 1">
+
+          <div class="form-group col-lg-6">
+            <label for="serie">Série</label>
+            <input class="form-control" 
+                   ngModel 
+                   #serie="ngModel" 
+                   id="serie" 
+                   name="serie" 
+                   placeholder="Digite o número de série da Carteira de trabalho">
+          </div>
+
+          <div class="form-group col-lg-6 select">
+              <label for="estado">Estado</label>
+              <select required class="form-control" ngModel #estado="ngModel" id="estado" name="estado"
+                placeholder="Estado" >
+                <option *ngFor="let estado of estados" value={{estado.codigo}}>
+                  {{estado.nome}}
+                </option>
+              </select>
+            </div>
+        </div>
+
+        <div *ngIf="tipoIdentificador.value == 2">
+
+          <div class="form-group col-lg-6">
+            <label for="nomeCartorio">Nome do cartório</label>
+            <input class="form-control" ngModel #nomeCartorio="ngModel" id="nomeCartorio" name="nomeCartorio"
+              placeholder="Digite o nome do cartório do documento">
+          </div>
+
+          <div class="form-group col-lg-6">
+            <label for="numLivro">Número do livro</label>
+            <input required class="form-control" ngModel #numLivro="ngModel" id="numLivro" name="numLivro" placeholder="Digite o número do livro">
+          </div>
+
+          <div class="form-group col-lg-6">
+            <label for="numFolha">Número da folha</label>
+            <input class="form-control" ngModel #numFolha="ngModel" id="numFolha" name="numFolha" placeholder="Digite o número da folha">
+          </div>
+
+          <div class="form-group col-lg-6">
+            <label for="termo">Termo</label>
+            <input required class="form-control" ngModel #termo="ngModel" id="termo" name="termo" placeholder="Digite o númer da certidão constante no livro no qual foi lavrada a certidão no cartório">
+          </div>
+        </div>
+
+        <div *ngIf="tipoIdentificador.value == 3">
+
+            <div class="form-group col-lg-6">
+              <label for="secaoEleitoral">Seção eleitoral</label>
+              <input class="form-control" 
+                     ngModel #secaoEleitoral="ngModel"
+                     id="secaoEleitoral" 
+                     name="secaoEleitoral"
+                     placeholder="Digite o numero da secao eleitoral">
+            </div>
+
+            <div class="form-group col-lg-6">
+                <label for="secaoEleitoral">Zona eleitoral</label>
+                <input class="form-control" 
+                       ngModel #zonaEleitoral="ngModel"
+                       id="zonaEleitoral" 
+                       name="zonaEleitoral"
+                       placeholder="Digite o numero da Zona Eleitoral">
+              </div>
+  
+            <div class="form-group col-lg-6">
+              <label for="numLivro">Número do livro</label>
+              <input required class="form-control" ngModel #numLivro="ngModel" id="numLivro" name="numLivro" placeholder="Digite o número do livro">
+            </div>
+  
+            <div class="form-group col-lg-6">
+              <label for="numFolha">Número da folha</label>
+              <input class="form-control" ngModel #numFolha="ngModel" id="numFolha" name="numFolha" placeholder="Digite o número da folha">
+            </div>
+  
+            <div class="form-group col-lg-6">
+              <label for="termo">Termo</label>
+              <input required class="form-control" ngModel #termo="ngModel" id="termo" name="termo" placeholder="Digite o númer da certidão constante no livro no qual foi lavrada a certidão no cartório">
             </div>
           </div>
-        
-          <div class="form-group select">
-            <label for="codigoGeo">Área geográfica</label>
-            <select required 
-                    class="form-control" 
-                    ngModel #codigoGeo="ngModel"
-                    id="codigoGeo" 
-                    name="codigoGeo"
-                    placeholder="Área geográfica">
-              <option *ngFor="let area of areasGeograficas" value={{area}}>
-                {{area.descricao}}
-              </option>
-            </select>
-          </div>
-        
-          <div class="form-group">
-            <label for="date">Data</label>
-            <input type="date" 
-                  ngModel
-                  name="date"
-                  #date="ngModel"
-                  class="form-control" 
-                  id="date" 
-                  placeholder="Digite a data">
-          </div>
-        
-          <button type="submit" class="btn btn-primary">Salvar</button>
-        </form>
-  </div>
-  <div class="col-md-6">
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
 
-  </div>
 </div>
-

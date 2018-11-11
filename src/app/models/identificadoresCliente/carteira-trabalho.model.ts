@@ -1,6 +1,6 @@
 import { Identificador } from "./identificador.model";
 
-export class CartTrabalho extends Identificador{
+export class CarteiraTrabalho extends Identificador{
 
     constructor(
         private serie?: number,
