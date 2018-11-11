@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TipoIdentificador } from '../../models/identificadoresCliente/tipo-identificador.model';
 import { TipoIdentificadorService } from '../../services/identificador/tipo-identificador.service';
 import { Estado } from '../../models/identificadoresCliente/estado.model';
-import { NumeroEstadosService } from '../../services/numero-estados.service';
+import { NumeroEstadosService } from '../../services/identificador/numero-estados.service';
 import { Identificador } from '../../models/identificadoresCliente/identificador.model';
 import { CarteiraTrabalho } from '../../models/identificadoresCliente/carteira-trabalho.model';
 import { CertNascCasDiv } from '../../models/identificadoresCliente/certidao-nasc-cas-div.model';
