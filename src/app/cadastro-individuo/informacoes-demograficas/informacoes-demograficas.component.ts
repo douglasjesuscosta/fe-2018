@@ -25,11 +25,28 @@ export class InformacoesDemograficasComponent implements OnInit {
 
     dataNasc.p_dataNascimento = f.value.dataNascimento;
     dataNasc.p_acuraciaDataNascimento = f.value.indAcuraciaDataNascimento;
-
+    dataNasc.p_seguimentoDataNascimento = f.value.indSegDataNascimento;
+    info.p_dataNascimento = dataNasc;
 
     var dataObito: DataObito;
     dataObito = new DataObito();
+    dataObito.p_dataObito = f.value.dataObito;
+    dataObito.p_acuraciaDataObito = f.value.indAcuraciaDataObito;
+    dataObito.p_fonteNotificacaoObito = f.value.fonteObito;
+    info.p_dataObito = dataObito;
 
+    info.p_nomeMae = f.value.nomeMae;
+    info.p_sexo = f.value.sexo;
+    info.p_nomePai = f.value.nomePai;
+    info.p_pluralidadeNascimento = f.value.plurNascimento;
+    info.p_racaCor = f.value.raca;
+    info.p_situacaoFamilitar = f.value.situacao;
+    info.p_comentarioIdentificacao = f.value.comentario;
+    info.p_estNascimento = f.value.estNascimento;
+    info.p_munNascimento = f.value.munNascimento;
+    info.p_paisNascimento = f.value.paisNascimento;
+
+    console.log(info);
   }
 
 }
