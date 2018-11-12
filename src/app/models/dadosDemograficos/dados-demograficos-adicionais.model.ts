@@ -94,7 +94,7 @@ export class DadosDemograficosAdicionais{
         return this.munNascimento;
     }
 
-    public set p_munNascimento(munNascimento?: string) {
+    public set p_munNascimento(munNascimento: string) {
         this.munNascimento = munNascimento;
     }
 
