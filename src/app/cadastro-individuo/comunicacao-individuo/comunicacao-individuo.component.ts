@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { MeioComunicacao } from '../../models/comunicaoIndividuo/meioComunicacao.model';
 import { PreferenciaContato } from '../../models/comunicaoIndividuo/preferenciaContato.model';
@@ -23,7 +24,8 @@ export class ComunicacaoIndividuoComponent implements OnInit {
 
   pacienteForm: FormGroup;
 
-  constructor(private mCService: MeioComunicaoService, private pCService: PreferenciaContatoService, private uCSerivce: UtilizacaoContatoService) { }
+  constructor(private mCService: MeioComunicaoService, private pCService: PreferenciaContatoService, 
+    private uCSerivce: UtilizacaoContatoService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.meiosComunicacao = this.mCService.getIngredients();
@@ -36,6 +38,7 @@ export class ComunicacaoIndividuoComponent implements OnInit {
   onSubmit() {
 
     console.log(this.pacienteForm.value);
+    this.router.navigate(['../relacionamento'], {relativeTo: this.route});
   }
 
   private initForm() {

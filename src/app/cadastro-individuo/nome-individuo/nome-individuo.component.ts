@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NomesCliente } from '../../models/nome/nome.model';
 import { IndicadorUsoService } from '../../services/nome/indicador-uso.service';
 import { IndicadorUso } from '../../models/nome/indicador-uso.model';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UsoNome } from '../../models/nome/uso-nome-model';
 import { UsoNomeService } from '../../services/nome/uso-nome.service';
 import { GrupoUtilizacao } from '../../models/nome/grupo-utilizacao.model';
@@ -15,7 +16,8 @@ import { GrupoUtilizacao } from '../../models/nome/grupo-utilizacao.model';
 export class NomeIndividuoComponent implements OnInit {
 
   constructor(private indicUsoService: IndicadorUsoService,
-              private usosNomeService: UsoNomeService) { }
+              private usosNomeService: UsoNomeService,
+              private router: Router, private route: ActivatedRoute) { }
 
   private nome: NomesCliente;
   private numTitulos: number = 0;
@@ -104,5 +106,6 @@ export class NomeIndividuoComponent implements OnInit {
     this.nome.p_grupoUtilizacao = grupUlt;  
 
     console.log(this.nome);
+    this.router.navigate(['../informacoesDemograficas'], {relativeTo: this.route});
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
+
 import { FormsModule } from '@angular/forms';
 import { DadosDemograficosAdicionais } from '../../models/dadosDemograficos/dados-demograficos-adicionais.model';
 import { DataNascimento } from '../../models/dadosDemograficos/data-nascimento.model';
@@ -11,7 +13,7 @@ import { DataObito } from '../../models/dadosDemograficos/data-obito.model';
 })
 export class InformacoesDemograficasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
@@ -47,6 +49,7 @@ export class InformacoesDemograficasComponent implements OnInit {
     info.p_paisNascimento = f.value.paisNascimento;
 
     console.log(info);
+    this.router.navigate(['../comunicacaoindivido'], {relativeTo: this.route});
   }
 
 }

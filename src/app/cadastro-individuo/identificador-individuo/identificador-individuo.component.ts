@@ -10,7 +10,9 @@ import { Identificador } from '../../models/identificadoresCliente/identificador
 import { CarteiraTrabalho } from '../../models/identificadoresCliente/carteira-trabalho.model';
 import { CertNascCasDiv } from '../../models/identificadoresCliente/certidao-nasc-cas-div.model';
 import { TituloEleitoral } from '../../models/identificadoresCliente/titulo-eleitoral.model';
-import {Router} from '@angular/router'
+
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-identificador-individuo',
@@ -27,7 +29,8 @@ export class IdentificadorIndividuoComponent implements OnInit {
     private areaGeoService: AreaGeograficaService,
     private tipoIdentificadorService: TipoIdentificadorService,
     private estadoService: NumeroEstadosService,
-    private router: Router
+    private router: Router, private route: ActivatedRoute
+
   ) { }
 
   ngOnInit() {
@@ -40,6 +43,7 @@ export class IdentificadorIndividuoComponent implements OnInit {
     if(f.valid){
       this.fillIdentificador(f);
     }
+    this.router.navigate(['../nomeIndividuo'], {relativeTo: this.route});
   }
 
   fillIdentificador(f){
@@ -75,8 +79,5 @@ export class IdentificadorIndividuoComponent implements OnInit {
     console.log(identificador);
     this.router.navigateByUrl('/cadastrarPaciente/');
   }
-
-
-
 
 }
