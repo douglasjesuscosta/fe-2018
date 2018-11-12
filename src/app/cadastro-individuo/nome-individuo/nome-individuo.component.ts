@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NomesCliente } from '../../models/nome/nome.model';
 import { IndicadorUsoService } from '../../services/nome/indicador-uso.service';
 import { IndicadorUso } from '../../models/nome/indicador-uso.model';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-nome-individuo',
@@ -11,7 +12,7 @@ import { IndicadorUso } from '../../models/nome/indicador-uso.model';
 })
 export class NomeIndividuoComponent implements OnInit {
 
-  constructor(private indicUsoService: IndicadorUsoService) { }
+  constructor(private indicUsoService: IndicadorUsoService, private router: Router, private route: ActivatedRoute) { }
 
   private nome: NomesCliente;
   private numTitulos: number = 0;
@@ -39,6 +40,10 @@ export class NomeIndividuoComponent implements OnInit {
     this.titulos = [];
     this.sufixos = [];
     this.sobrenomes = [];
+  }
+
+  submit(){
+    this.router.navigate(['../informacoesDemograficas'], {relativeTo: this.route});
   }
 
   addNomeAtribuido(){
