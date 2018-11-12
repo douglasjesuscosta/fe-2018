@@ -1,9 +1,9 @@
 export class DataNascimento{
 
     constructor(
-        private dataNascimento: Date,
-        private acuraciaDataNascimento: string,
-        private seguimentoDataNascimento: boolean
+        private dataNascimento?: Date,
+        private acuraciaDataNascimento?: string,
+        private seguimentoDataNascimento?: boolean
 
     ){}
 

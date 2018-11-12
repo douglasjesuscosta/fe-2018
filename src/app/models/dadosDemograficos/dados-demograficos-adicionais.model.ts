@@ -4,16 +4,18 @@ import { DataObito } from "./data-obito.model";
 export class DadosDemograficosAdicionais{
 
     constructor(
-        private dataNascimento: DataNascimento,
-        private dataObito: DataObito,
-        private sexo: string,
-        private nomeMae: string,
-        private nomePai: string,
-        private situacaoFamilitar: string,
-        private racaCor: string,
-        private pluralidadeNascimento: string,
-        private comentarioIdentificacao: string
-
+        private dataNascimento?: DataNascimento,
+        private dataObito?: DataObito,
+        private sexo?: string,
+        private nomeMae?: string,
+        private nomePai?: string,
+        private situacaoFamilitar?: string,
+        private racaCor?: string,
+        private pluralidadeNascimento?: string,
+        private comentarioIdentificacao?: string,
+        private munNascimento?: string,
+        private estNascimento?: string,
+        private paisNascimento?: string
     ){}
 
     public get p_dataNascimento(): DataNascimento {
@@ -86,6 +88,30 @@ export class DadosDemograficosAdicionais{
 
     public set p_comentarioIdentificacao(comentarioIdentificacao: string){
         this.comentarioIdentificacao = comentarioIdentificacao;
+    }
+
+    public get p_munNascimento(): string {
+        return this.munNascimento;
+    }
+
+    public set p_munNascimento(munNascimento?: string) {
+        this.munNascimento = munNascimento;
+    }
+
+    public get p_estNascimento(): string {
+        return this.estNascimento;
+    }
+
+    public set p_estNascimento(estNascimento: string){
+        this.estNascimento = estNascimento;
+    }
+
+    public get p_paisNascimento(): string {
+        return this.paisNascimento;
+    }
+
+    public set p_paisNascimento(paisNascimento: string) {
+        this.paisNascimento = paisNascimento;
     }
 
 }

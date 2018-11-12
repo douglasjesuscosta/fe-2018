@@ -4,6 +4,9 @@ import { NomesCliente } from '../../models/nome/nome.model';
 import { IndicadorUsoService } from '../../services/nome/indicador-uso.service';
 import { IndicadorUso } from '../../models/nome/indicador-uso.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { UsoNome } from '../../models/nome/uso-nome-model';
+import { UsoNomeService } from '../../services/nome/uso-nome.service';
+import { GrupoUtilizacao } from '../../models/nome/grupo-utilizacao.model';
 
 @Component({
   selector: 'app-nome-individuo',
@@ -12,7 +15,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NomeIndividuoComponent implements OnInit {
 
-  constructor(private indicUsoService: IndicadorUsoService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private indicUsoService: IndicadorUsoService,
+              private usosNomeService: UsoNomeService,
+              private router: Router, private route: ActivatedRoute) { }
 
   private nome: NomesCliente;
   private numTitulos: number = 0;
@@ -25,6 +30,7 @@ export class NomeIndividuoComponent implements OnInit {
   private nomes: string[];
   private sobrenomes: string[];
   private indicadores: IndicadorUso[];
+  private usosNome: UsoNome[];
 
   private nomeAtribuido: string;
   private sufixo: string;
@@ -35,15 +41,12 @@ export class NomeIndividuoComponent implements OnInit {
   ngOnInit() {
     this.nome = new NomesCliente();
     this.indicadores = this.indicUsoService.getIndicUso();
+    this.usosNome = this.usosNomeService.getUsosNome();
 
     this.nomes = [];
     this.titulos = [];
     this.sufixos = [];
     this.sobrenomes = [];
-  }
-
-  submit(){
-    this.router.navigate(['../informacoesDemograficas'], {relativeTo: this.route});
   }
 
   addNomeAtribuido(){
@@ -91,4 +94,18 @@ export class NomeIndividuoComponent implements OnInit {
     sufixo = null;
   }
 
+  submit(f){
+    this.nome.p_indicadorUso = f.value.indicadorUsoOpcional;
+    this.nome.p_nomeAlternativo = f.value.representAlt;
+
+    var grupUlt = new GrupoUtilizacao();
+    grupUlt.p_identificadorUso = f.value.usoNome;
+    grupUlt.p_dataInicioUso = f.value.dataInicio;
+    grupUlt.p_dataFinalUso = f.value.dataFinal;
+
+    this.nome.p_grupoUtilizacao = grupUlt;  
+
+    console.log(this.nome);
+    this.router.navigate(['../informacoesDemograficas'], {relativeTo: this.route});
+  }
 }
